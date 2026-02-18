@@ -1,10 +1,8 @@
 pipeline {
     agent any
-
     environment {
         DEPLOY_DIR = "/var/www/site1"
     }
-
     stages {
         stage('Deploy') {
             steps {
