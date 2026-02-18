@@ -1,14 +1,20 @@
 pipeline {
     agent any
+
     environment {
         DEPLOY_DIR = "/var/www/site1"
     }
+
     stages {
         stage('Deploy') {
             steps {
                 sh '''
-                rm -rf $DEPLOY_DIR/*
-                cp -r * $DEPLOY_DIR/
+                echo "Current directory:"
+                pwd
+                ls -la
+
+                mkdir -p /var/www/site1
+                cp -r * /var/www/site1/
                 '''
             }
         }
